@@ -1,0 +1,7 @@
+run = "node src/server.js"
+
+[env]
+NODE_ENV = "production"
+
+[packager]
+language = "nodejs"

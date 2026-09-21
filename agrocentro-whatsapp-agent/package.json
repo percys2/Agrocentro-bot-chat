@@ -1,0 +1,19 @@
+{
+  "name": "agrocentro-whatsapp-agent",
+  "version": "0.1.0",
+  "description": "Agente de WhatsApp para AgroCentro Nica: responde consultas de alimentación y productos, toma pedidos y los pasa al dueño para confirmar. Sin dependencias: solo Node 20+.",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "chat": "node scripts/chat.js",
+    "test": "node --test test/*.test.js",
+    "sync-site": "node scripts/sync-site-data.js",
+    "init-prices": "node scripts/init-prices.js"
+  },
+  "dependencies": {}
+}

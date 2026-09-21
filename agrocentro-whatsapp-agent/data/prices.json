@@ -1,0 +1,901 @@
+{
+  "_instrucciones": "Escribí el precio en córdobas como número (ej. 1850 o 20.5). Dejá null si no querés que el agente lo diga: entonces responde 'precio por confirmar'. Podés agregar filas con otras presentaciones.",
+  "moneda": "C$",
+  "actualizado": "2026-09-17",
+  "precios": [
+    {
+      "id": 1,
+      "producto": "Engordina",
+      "presentacion": "Saco 100 lb (45.4 kg)",
+      "precio": null
+    },
+    {
+      "id": 1,
+      "producto": "Engordina",
+      "presentacion": "Libra",
+      "precio": null
+    },
+    {
+      "id": 2,
+      "producto": "Iniciarina",
+      "presentacion": "Saco 100 lb (45.4 kg)",
+      "precio": null
+    },
+    {
+      "id": 2,
+      "producto": "Iniciarina",
+      "presentacion": "Libra",
+      "precio": null
+    },
+    {
+      "id": 3,
+      "producto": "Nova Gallos Plus",
+      "presentacion": "Saco 100 lb (45.4 kg)",
+      "precio": null
+    },
+    {
+      "id": 3,
+      "producto": "Nova Gallos Plus",
+      "presentacion": "Libra",
+      "precio": null
+    },
+    {
+      "id": 4,
+      "producto": "Preiniciarina Plus LA",
+      "presentacion": "Saco 100 lb (45.4 kg)",
+      "precio": null
+    },
+    {
+      "id": 4,
+      "producto": "Preiniciarina Plus LA",
+      "presentacion": "Libra",
+      "precio": null
+    },
+    {
+      "id": 10,
+      "producto": "Pollo Criollo",
+      "presentacion": "Saco 100 lb (45.4 kg)",
+      "precio": null
+    },
+    {
+      "id": 10,
+      "producto": "Pollo Criollo",
+      "presentacion": "Libra",
+      "precio": null
+    },
+    {
+      "id": 11,
+      "producto": "Ponedora Criollita",
+      "presentacion": "Saco 100 lb (45.4 kg)",
+      "precio": null
+    },
+    {
+      "id": 11,
+      "producto": "Ponedora Criollita",
+      "presentacion": "Libra",
+      "precio": null
+    },
+    {
+      "id": 38,
+      "producto": "Posturina Fase 1",
+      "presentacion": "Saco 100 lb (45.4 kg)",
+      "precio": null
+    },
+    {
+      "id": 38,
+      "producto": "Posturina Fase 1",
+      "presentacion": "Libra",
+      "precio": null
+    },
+    {
+      "id": 39,
+      "producto": "Posturina HP",
+      "presentacion": "Saco 100 lb (45.4 kg)",
+      "precio": null
+    },
+    {
+      "id": 39,
+      "producto": "Posturina HP",
+      "presentacion": "Libra",
+      "precio": null
+    },
+    {
+      "id": 5,
+      "producto": "Cavalleria Forte",
+      "presentacion": "Saco 25 kg",
+      "precio": null
+    },
+    {
+      "id": 6,
+      "producto": "Omalina 100",
+      "presentacion": "Saco 100 lb (45.4 kg)",
+      "precio": null
+    },
+    {
+      "id": 6,
+      "producto": "Omalina 100",
+      "presentacion": "Libra",
+      "precio": null
+    },
+    {
+      "id": 7,
+      "producto": "Omalina 200",
+      "presentacion": "Saco 100 lb (45.4 kg)",
+      "precio": null
+    },
+    {
+      "id": 7,
+      "producto": "Omalina 200",
+      "presentacion": "Libra",
+      "precio": null
+    },
+    {
+      "id": 8,
+      "producto": "Omalina 300",
+      "presentacion": "Saco 100 lb (45.4 kg)",
+      "precio": null
+    },
+    {
+      "id": 8,
+      "producto": "Omalina 300",
+      "presentacion": "Libra",
+      "precio": null
+    },
+    {
+      "id": 23,
+      "producto": "Forrajina",
+      "presentacion": "Saco 100 lb (45.4 kg)",
+      "precio": null
+    },
+    {
+      "id": 23,
+      "producto": "Forrajina",
+      "presentacion": "Libra",
+      "precio": null
+    },
+    {
+      "id": 12,
+      "producto": "Mimados Adulto 50 lb",
+      "presentacion": "Saco 50 lb (22.7 kg)",
+      "precio": null
+    },
+    {
+      "id": 13,
+      "producto": "Mimados Cachorro 50 lb",
+      "presentacion": "Saco 50 lb (22.7 kg)",
+      "precio": null
+    },
+    {
+      "id": 14,
+      "producto": "Dogui Carne 454 g",
+      "presentacion": "Bolsa 454 g (1 lb)",
+      "precio": null
+    },
+    {
+      "id": 15,
+      "producto": "Dogui Carnes y Vegetales 18 kg",
+      "presentacion": "Saco 18 kg",
+      "precio": null
+    },
+    {
+      "id": 16,
+      "producto": "Dogui Cachorros 454 g",
+      "presentacion": "Bolsa 454 g (1 lb)",
+      "precio": null
+    },
+    {
+      "id": 17,
+      "producto": "Dogui Cachorros 18 kg",
+      "presentacion": "Saco 18 kg",
+      "precio": null
+    },
+    {
+      "id": 33,
+      "producto": "Pet Master Adultos 20 kg",
+      "presentacion": "Saco 20 kg (44.1 lb)",
+      "precio": null
+    },
+    {
+      "id": 34,
+      "producto": "Pet Master Adultos 454 g",
+      "presentacion": "Bolsa 454 g (1 lb)",
+      "precio": null
+    },
+    {
+      "id": 35,
+      "producto": "Pet Master Cachorros 20 kg",
+      "presentacion": "Saco 20 kg (44.1 lb)",
+      "precio": null
+    },
+    {
+      "id": 40,
+      "producto": "Pet Master Cachorros 454 g",
+      "presentacion": "Bolsa 454 g (1 lb)",
+      "precio": null
+    },
+    {
+      "id": 18,
+      "producto": "Don Gato Adultos 454 g",
+      "presentacion": "Bolsa 454 g (1 lb)",
+      "precio": null
+    },
+    {
+      "id": 19,
+      "producto": "Don Gato Adultos 8 kg",
+      "presentacion": "Saco 8 kg (17.6 lb)",
+      "precio": null
+    },
+    {
+      "id": 20,
+      "producto": "Gati Mar y Tierra 454 g",
+      "presentacion": "Bolsa 454 g (1 lb)",
+      "precio": null
+    },
+    {
+      "id": 21,
+      "producto": "Gati Mar y Tierra 8 kg",
+      "presentacion": "Saco 8 kg (17.6 lb)",
+      "precio": null
+    },
+    {
+      "id": 24,
+      "producto": "Neopigg 1",
+      "presentacion": "Saco 20 kg (44 lb)",
+      "precio": null
+    },
+    {
+      "id": 25,
+      "producto": "Neopigg 2",
+      "presentacion": "Saco 25 kg (55.1 lb)",
+      "precio": null
+    },
+    {
+      "id": 37,
+      "producto": "Neopigg 3",
+      "presentacion": "Saco 25 kg (55.1 lb)",
+      "precio": null
+    },
+    {
+      "id": 26,
+      "producto": "Neopigg 4",
+      "presentacion": "Saco 100 lb (45.4 kg)",
+      "precio": null
+    },
+    {
+      "id": 26,
+      "producto": "Neopigg 4",
+      "presentacion": "Libra",
+      "precio": null
+    },
+    {
+      "id": 27,
+      "producto": "Desarrollina",
+      "presentacion": "Saco 100 lb (45.4 kg)",
+      "precio": null
+    },
+    {
+      "id": 27,
+      "producto": "Desarrollina",
+      "presentacion": "Libra",
+      "precio": null
+    },
+    {
+      "id": 28,
+      "producto": "Jamonina",
+      "presentacion": "Saco 100 lb (45.4 kg)",
+      "precio": null
+    },
+    {
+      "id": 28,
+      "producto": "Jamonina",
+      "presentacion": "Libra",
+      "precio": null
+    },
+    {
+      "id": 29,
+      "producto": "Criacerdina",
+      "presentacion": "Saco 100 lb (45.4 kg)",
+      "precio": null
+    },
+    {
+      "id": 29,
+      "producto": "Criacerdina",
+      "presentacion": "Libra",
+      "precio": null
+    },
+    {
+      "id": 30,
+      "producto": "Lacticerdina",
+      "presentacion": "Saco 100 lb (45.4 kg)",
+      "precio": null
+    },
+    {
+      "id": 30,
+      "producto": "Lacticerdina",
+      "presentacion": "Libra",
+      "precio": null
+    },
+    {
+      "id": 31,
+      "producto": "Pig-Nova 5",
+      "presentacion": "Saco 100 lb (45.4 kg)",
+      "precio": null
+    },
+    {
+      "id": 31,
+      "producto": "Pig-Nova 5",
+      "presentacion": "Libra",
+      "precio": null
+    },
+    {
+      "id": 32,
+      "producto": "Pig-Nova 6",
+      "presentacion": "Saco 100 lb (45.4 kg)",
+      "precio": null
+    },
+    {
+      "id": 32,
+      "producto": "Pig-Nova 6",
+      "presentacion": "Libra",
+      "precio": null
+    },
+    {
+      "id": 36,
+      "producto": "Pur-A-Lean",
+      "presentacion": "Saco 100 lb (45.4 kg)",
+      "precio": null
+    },
+    {
+      "id": 36,
+      "producto": "Pur-A-Lean",
+      "presentacion": "Libra",
+      "precio": null
+    },
+    {
+      "id": 9,
+      "producto": "Granja Familiar Conejos",
+      "presentacion": "Saco 100 lb (45.4 kg)",
+      "precio": null
+    },
+    {
+      "id": 9,
+      "producto": "Granja Familiar Conejos",
+      "presentacion": "Libra",
+      "precio": null
+    },
+    {
+      "id": 100,
+      "producto": "Almadana Fibra de Vidrio",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 101,
+      "producto": "Almadana Mango de Madera",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 102,
+      "producto": "Atomizador 1 Litro",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 103,
+      "producto": "Azadon CA",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 104,
+      "producto": "Bieldo de Heno",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 105,
+      "producto": "Bomba Fumigadora 16 Litros",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 106,
+      "producto": "Bomba Fumigar 5 Litros",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 107,
+      "producto": "Bomba Manual de Aire",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 108,
+      "producto": "Candado Laton Pulido",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 109,
+      "producto": "Carretilla IMACASA",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 110,
+      "producto": "Chuzo Forjado",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 111,
+      "producto": "Cinta Metrica Industrial 5m",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 112,
+      "producto": "Cinta Metrica Profesional 3m",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 113,
+      "producto": "Cinta Sella Roscas",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 114,
+      "producto": "Dispensador Cinta Empaque",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 115,
+      "producto": "Escoba Amarilla 30 Dientes",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 116,
+      "producto": "Escoba Recta",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 117,
+      "producto": "Extension Electrica",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 118,
+      "producto": "Gato Hidraulico",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 119,
+      "producto": "Juego de Destornilladores",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 120,
+      "producto": "Juego Punta Taladro",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 121,
+      "producto": "Lentes Ajustables",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 122,
+      "producto": "Lentes Negros de Seguridad",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 123,
+      "producto": "Lima Cuadrada Bastarda",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 124,
+      "producto": "Lima Cuchillo Bastarda",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 125,
+      "producto": "Lima Cuchillo con Mango",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 126,
+      "producto": "Lima Motosierra",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 127,
+      "producto": "Linterna 1 LED",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 128,
+      "producto": "Linterna 3 Cabezas",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 129,
+      "producto": "Linterna COB",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 130,
+      "producto": "Llave Ajustable",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 131,
+      "producto": "Llave de Laton",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 132,
+      "producto": "Machete",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 133,
+      "producto": "Machete 26 Pulgadas",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 134,
+      "producto": "Machete 28 Pulgadas",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 135,
+      "producto": "Machete Cutacha",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 136,
+      "producto": "Machete Sierra",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 137,
+      "producto": "Stilson",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 214,
+      "producto": "Tenaza de Presion",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 215,
+      "producto": "Tenaza de Electricista",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 216,
+      "producto": "Tenaza de Chofer",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 217,
+      "producto": "Tenaza para Podar",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 218,
+      "producto": "Tenaza Finquera",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 219,
+      "producto": "Tenaza Armador",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 220,
+      "producto": "Pala Cuadrada",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 221,
+      "producto": "Pala Redonda",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 222,
+      "producto": "Pala Mango Metalico",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 223,
+      "producto": "Pala Plegable",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 224,
+      "producto": "Pala Acova Hoyos",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 225,
+      "producto": "Piocha",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 226,
+      "producto": "Rastrillo 16 Dientes",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 227,
+      "producto": "Rastrillo Jardinero 16 Dientes",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 228,
+      "producto": "Rastrillo Uso Pesado",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 229,
+      "producto": "Mazo de Hule",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 230,
+      "producto": "Mini Bomba de Aire",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 231,
+      "producto": "Pistola Plastica Jardineria",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 232,
+      "producto": "Porta Herramientas",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 233,
+      "producto": "Portalampara",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 234,
+      "producto": "Regleta Electrica",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 235,
+      "producto": "Regleta con USB",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 236,
+      "producto": "Rociadora de Presion",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 237,
+      "producto": "Valvula Esfera de Laton",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 200,
+      "producto": "Amoxi-LH 500",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 201,
+      "producto": "Bolos Uterinos",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 202,
+      "producto": "Bromhexina LH 2%",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 203,
+      "producto": "Calfostonic",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 204,
+      "producto": "Chickenvit-Plus",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 205,
+      "producto": "Dolfen 100 mg/ml",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 206,
+      "producto": "Doxiciclina LH 500",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 207,
+      "producto": "Electrolitos + Aminoácidos + Vitaminas",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 208,
+      "producto": "Eritromicina Avícola",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 209,
+      "producto": "Fenbendazol 4% · LIVISTO",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 210,
+      "producto": "Lhivermectin Avícola · LIVISTO",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 211,
+      "producto": "Oxitolac · LIVISTO",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 212,
+      "producto": "Selevit-E · LIVISTO",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 213,
+      "producto": "Vitamina K-LH · LIVISTO",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 238,
+      "producto": "Antitérmico Refresh · Ale-Bet",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 239,
+      "producto": "Ascorbol Inyectable · Aranda",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 240,
+      "producto": "Azul Piotánico · Aranda",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 241,
+      "producto": "Broncowell · Wellco",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 242,
+      "producto": "Dermacalm Shampoo",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 243,
+      "producto": "Dermatryl Medicado Shampoo",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 244,
+      "producto": "Fripets Tabletas",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 245,
+      "producto": "Electrowell Polvo",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 246,
+      "producto": "Endal Plus",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 247,
+      "producto": "Enrozol 10%",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 248,
+      "producto": "Eriprim Pets",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 249,
+      "producto": "Fipronex Spray",
+      "presentacion": "Unidad",
+      "precio": null
+    },
+    {
+      "id": 250,
+      "producto": "Fortalizador Avícola Farbiovet",
+      "presentacion": "Unidad",
+      "precio": null
+    }
+  ]
+}
