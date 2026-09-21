@@ -1,0 +1,46 @@
+{
+  "50687123456": {
+    "phone": "50687123456",
+    "name": "Carlos López",
+    "zona": "Masaya",
+    "messages": [{"role": "user", "content": "Hola"}],
+    "clientData": {
+      "nombre": "Carlos López",
+      "animal_tipo": "gallina_ponedora",
+      "animal_cantidad": 100,
+      "animal_edad_dias": 180,
+      "sucursal_preferida": "Masaya",
+      "dias_alimento": 30
+    },
+    "updatedAt": 1695312000000
+  },
+  "50689876543": {
+    "phone": "50689876543",
+    "name": "María Díaz",
+    "zona": "Granada",
+    "messages": [],
+    "clientData": {
+      "nombre": "María Díaz",
+      "animal_tipo": "pollo_engorde",
+      "animal_cantidad": 500,
+      "animal_edad_dias": 25,
+      "sucursal_preferida": "Granada",
+      "dias_alimento": 42
+    },
+    "updatedAt": 1695398400000
+  },
+  "50685554444": {
+    "phone": "50685554444",
+    "name": "Pedro García",
+    "zona": "Veracruz",
+    "messages": [],
+    "clientData": {
+      "nombre": "Pedro García",
+      "animal_tipo": "cerdo_lechon",
+      "animal_cantidad": 50,
+      "animal_edad_dias": 35,
+      "sucursal_preferida": "Veracruz"
+    },
+    "updatedAt": 1695484800000
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "50511112222": {
+    "phone": "50511112222",
+    "messages": [
+      {
+        "role": "user",
+        "content": "4"
+      },
+      {
+        "role": "assistant",
+        "content": [
+          {
+            "type": "text",
+            "text": "Buenas noches. La tienda está cerrada en este momento (viernes a las 6:12 p.m.). Abrimos mañana sábado de 8:00 a.m. a 2:00 p.m.\n\n¿En qué puedo ayudarle? Si es urgente, puede escribir al 8240 3490."
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": "quiero un delivery"
+      },
+      {
+        "role": "assistant",
+        "content": [
+          {
+            "type": "text",
+            "text": "Los pedidos se retiran en nuestras sucursales de Diriomo o Masatepe. Si necesita envío a domicilio, le paso la consulta a un asesor para que coordine con usted.\n\n¿Le dejo anotado para que un asesor le escriba?"
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": "si porfvo"
+      },
+      {
+        "role": "assistant",
+        "content": [
+          {
+            "type": "text",
+            "text": "Perfecto. Un asesor le escribirá en breve para coordinar el envío a domicilio. También puede llamar al 8240 3490 si prefiere hablar directo."
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_018a62hmyDwmgygwhpjRYGwR",
+            "name": "pasar_a_humano",
+            "input": {
+              "motivo": "envío a domicilio",
+              "resumen": "Cliente solicita envío a domicilio en lugar de retiro en sucursal."
+            },
+            "caller": {
+              "type": "direct"
+            }
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "tool_result",
+            "tool_use_id": "toolu_018a62hmyDwmgygwhpjRYGwR",
+            "content": "{\"ok\":true,\"mensaje_para_cliente\":\"Un asesor le escribirá en breve. Si prefiere, puede escribir directo al 8240 3490. Horario: Lunes a viernes de 8:00 a.m. a 5:00 p.m. y sábados de 8:00 a.m. a 2:00 p.m. Domingos cerrado.\"}"
+          }
+        ]
+      },
+      {
+        "role": "assistant",
+        "content": [
+          {
+            "type": "text",
+            "text": "Disculpe, no pude resolver la consulta en este momento. Un asesor le escribirá en breve."
+          }
+        ]
+      }
+    ],
+    "zona": "Diriomo",
+    "name": "Cliente de prueba",
+    "updatedAt": 1789776759087,
+    "handoffUntil": 1789783959087
+  }
+}

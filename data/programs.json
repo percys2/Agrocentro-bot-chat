@@ -1,0 +1,132 @@
+{
+  "_fuente": "Programas y tablas de la Guía de uso del sitio (usage-guide-programs.js v15 y usage-guide.js v56). Libras por animal por etapa; sacos de 100 lb (45.4 kg) salvo que se indique.",
+  "constantes": {
+    "saco_lb": 100,
+    "saco_kg": 45.4,
+    "lb_por_kg": 2.2046
+  },
+  "pollo_engorde": {
+    "descripcion": "Programa de tres etapas hasta los 42 días. Base: 10 lb de alimento por pollo. El consumo real puede pasar de 10 lb según genética, clima, salud y manejo.",
+    "etapas": [
+      {"producto_id": 4, "producto": "Preiniciarina Plus LA", "dia_inicio": 1, "dia_fin": 7, "lb_por_pollo": 0.4},
+      {"producto_id": 2, "producto": "Iniciarina", "dia_inicio": 8, "dia_fin": 21, "lb_por_pollo": 2.2},
+      {"producto_id": 1, "producto": "Engordina", "dia_inicio": 22, "dia_fin": 42, "lb_por_pollo": 7.4}
+    ],
+    "total_lb_por_pollo": 10.0,
+    "lineas": {
+      "Cobb 500": {"conversion_42d": 1.56, "nota": "La más común en Nicaragua"},
+      "Ross 308": {"conversion_42d": 1.53}
+    },
+    "peso_49_dias": "≈5.5 lb (2.5 kg) en galera; ≈5 lb (2.3 kg) si pastorea",
+    "alimento_por_lb_carne": "1.85–1.9 lb",
+    "manejo": "Pesar 10 pollos cada semana; si van bajo la meta revisar agua fresca, sombra, ventilación y que el alimento sea el de la etapa correcta."
+  },
+  "gallina_ponedora": {
+    "descripcion": "Primer huevo alrededor de las 18 semanas; 50 % de postura cerca de las 20; pico por encima del 93 % entre las 24 y 30 semanas; luego baja despacio (≈90 % a la semana 60, ≈80 % a la 80).",
+    "consumo_g_dia_default": 112,
+    "consumo_g_dia_rango": "100–120 según la línea",
+    "levante_kg_total_0_17_semanas": 6,
+    "productos": [
+      {"producto_id": 38, "producto": "Posturina Fase 1", "uso": "Desde las 18 semanas, todo el ciclo de postura; gallinas de patio"},
+      {"producto_id": 39, "producto": "Posturina HP", "uso": "De las 19–21 semanas hasta la semana 59; gallinas de granja"},
+      {"producto_id": 11, "producto": "Ponedora Criollita", "uso": "Gallinas criollas durante todo el ciclo de postura"}
+    ],
+    "raciones_por_saco_112g": 405,
+    "referencia": "Con 112 g/día: 25 gallinas gastan un saco de 100 lb en ≈16 días; 100 gallinas en ≈4 días.",
+    "lineas": {
+      "Hy-Line Brown": {"huevo": "marrón oscuro", "dias_al_50": 139, "pico": "94–98 %", "huevos_100_semanas": "466–498", "consumo_g_dia": "109–117", "nota": "Resistente; rinde en patio y granja"},
+      "Lohmann Brown-Classic": {"huevo": "marrón", "dias_al_50": "140–145", "pico": "94–96 %", "huevos_100_semanas": "461", "nota": "Tranquila y equilibrada"},
+      "ISA Brown": {"huevo": "marrón", "dias_al_50": 145, "pico": "96 %", "huevos_100_semanas": "476", "consumo_g_dia": "114–119", "nota": "Se adapta a climas y sistemas"},
+      "Dekalb White": {"huevo": "blanco", "dias_al_50": 144, "pico": "97.5 %", "huevos_100_semanas": "507", "consumo_g_dia": "109–112", "nota": "Dócil y adaptable"},
+      "Lohmann LSL-Classic": {"huevo": "blanco", "dias_al_50": "140–145", "pico": "94–96 %", "huevos_100_semanas": "471", "nota": "Calmada y liviana (1.8 kg al final)"},
+      "Hy-Line W-36 / W-80": {"huevo": "blanco", "nota": "De granja: W-36 eficiente; W-80 rústica y calmada"},
+      "Gallina criolla": {"huevo": "marrón claro / crema", "huevos_por_ano": "60–65", "nota": "Rústica, se enclueca. Con concentrado, agua limpia y vacunas, una Hy-Line Brown da ≈240 huevos al año"}
+    },
+    "curva_por_semana": {
+      "semanas": [20, 24, 26, 30, 40, 50, 60, 70, 80, 90],
+      "Hy-Line Brown": {"postura_pct": ["52–55", "92–97", "94–98", "93–98", "92–97", "90–96", "87–93", "84–90", "80–86", "75–82"], "huevos_acum": ["6", "30–31", "43–45", "69–72", "133–140", "196–206", "256–271", "314–333", "368–391", "419–446"], "peso_huevo_g": ["48–50", "53–56", "55–59", "58–62", "60–64", "60–64", "61–65", "61–65", "62–65", "62–66"], "consumo_g_dia": ["91–98", "107–114", "109–117", "110–118", "110–118", "110–118", "110–118", "110–118", "110–118", "110–118"]},
+      "Lohmann Brown": {"postura_pct": [36, 88, 93, 95, 95, 92, 88, 84, 79, 73], "huevos_acum": [3, 24, 37, 63, 129, 193, 254, 313, 367, 416], "peso_huevo_g": [46, 55, 58, 62, 65, 66, 66, 67, 68, 68]},
+      "ISA Brown": {"postura_pct": [31, 90, 95, 96, 95, 93, 89, 86, 82, 77], "huevos_acum": [3, 23, 36, 63, 129, 192, 254, 314, 371, 426], "peso_huevo_g": [50, 58, 60, 62, 64, 64, 64, 64, 65, 65], "consumo_g_dia": [102, 114, 117, 119, 119, 119, 118, 118, 118, 118]},
+      "Dekalb White": {"postura_pct": [20, 95, 96, 98, 97, 96, 96, 95, 94, 90], "huevos_acum": [2, 23, 37, 64, 131, 198, 263, 328, 391, 452], "peso_huevo_g": [47, 55, 58, 60, 62, 63, 64, 64, 64, 64], "consumo_g_dia": [97, 109, 112, 112, 112, 112, 112, 112, 112, 112]}
+    },
+    "manejo": "Si la postura va baja revisar agua, calor, luz (14–16 horas) y que el alimento sea el de la etapa. % de postura = huevos del día ÷ gallinas × 100."
+  },
+  "cerdo": {
+    "descripcion": "Desde el nacimiento hasta los 154 días (≈5 meses) un cerdo consume ≈527 lb: 85 lb de NeoPigg hasta el día 70 y 442 lb del día 71 al 154 en cualquier línea. Llega a 224–245 lb según la línea. El desperdicio va aparte.",
+    "sacos": {"24": {"lb": 44, "kg": 20}, "25": {"lb": 55.1, "kg": 25}, "37": {"lb": 55.1, "kg": 25}, "default": {"lb": 100, "kg": 45.4}},
+    "neopigg": {
+      "nota": "Cuatro fases por edad en días de vida. Desde el día 5 el lechón prueba NeoPigg 1 junto a la cerda. Elegir un programa (Óptimo o Plus) y seguirlo en orden. Total 85 lb por cerdo en ambos.",
+      "optimo": [
+        {"producto_id": 24, "producto": "Neopigg 1", "dia_inicio": 5, "dia_fin": 27, "lb_por_cerdo": 3},
+        {"producto_id": 25, "producto": "Neopigg 2", "dia_inicio": 28, "dia_fin": 34, "lb_por_cerdo": 6},
+        {"producto_id": 37, "producto": "Neopigg 3", "dia_inicio": 35, "dia_fin": 43, "lb_por_cerdo": 12},
+        {"producto_id": 26, "producto": "Neopigg 4", "dia_inicio": 44, "dia_fin": 70, "lb_por_cerdo": 64}
+      ],
+      "plus": [
+        {"producto_id": 24, "producto": "Neopigg 1", "dia_inicio": 5, "dia_fin": 30, "lb_por_cerdo": 5},
+        {"producto_id": 25, "producto": "Neopigg 2", "dia_inicio": 31, "dia_fin": 39, "lb_por_cerdo": 10},
+        {"producto_id": 37, "producto": "Neopigg 3", "dia_inicio": 40, "dia_fin": 48, "lb_por_cerdo": 15},
+        {"producto_id": 26, "producto": "Neopigg 4", "dia_inicio": 49, "dia_fin": 70, "lb_por_cerdo": 55}
+      ]
+    },
+    "peso_dia_71_lb": 66,
+    "lineas": {
+      "estandar": {
+        "nombre": "Línea estándar",
+        "peso_final_lb": 224,
+        "ganancia": "90 lb en 49 días; 2.53 lb de alimento por lb ganada (días 71–154)",
+        "etapas": [
+          {"producto_id": 27, "producto": "Desarrollina", "dia_inicio": 71, "dia_fin": 119, "lb_por_cerdo": 228},
+          {"producto_id": 28, "producto": "Jamonina", "dia_inicio": 120, "dia_fin": 154, "lb_por_cerdo": 214}
+        ]
+      },
+      "estandar_lean": {
+        "nombre": "Línea estándar cerrando con Pur-A-Lean",
+        "peso_final_lb": 232,
+        "etapas": [
+          {"producto_id": 27, "producto": "Desarrollina", "dia_inicio": 71, "dia_fin": 98, "lb_por_cerdo": 120},
+          {"producto_id": 28, "producto": "Jamonina", "dia_inicio": 99, "dia_fin": 126, "lb_por_cerdo": 150},
+          {"producto_id": 36, "producto": "Pur-A-Lean", "dia_inicio": 127, "dia_fin": 154, "lb_por_cerdo": 172}
+        ]
+      },
+      "pignova": {
+        "nombre": "Línea Pig-Nova (premium)",
+        "peso_final_lb": 245,
+        "ganancia": "96 lb en 49 días; 2.29 lb de alimento por lb ganada (días 71–154). Meta: 6 lb más de cerdo con 8 lb menos de alimento que la estándar, con buen manejo",
+        "etapas": [
+          {"producto_id": 31, "producto": "Pig-Nova 5", "dia_inicio": 71, "dia_fin": 91, "lb_por_cerdo": 90},
+          {"producto_id": 32, "producto": "Pig-Nova 6", "dia_inicio": 92, "dia_fin": 119, "lb_por_cerdo": 130},
+          {"producto_id": 36, "producto": "Pur-A-Lean", "dia_inicio": 120, "dia_fin": 154, "lb_por_cerdo": 222}
+        ]
+      }
+    },
+    "cerdas": [
+      {"producto_id": 29, "producto": "Criacerdina", "etapa": "gestacion", "uso": "Desde el servicio hasta el parto"},
+      {"producto_id": 30, "producto": "Lacticerdina", "etapa": "lactancia", "uso": "Desde el parto hasta el destete"}
+    ]
+  },
+  "caballo": {
+    "productos": [
+      {"producto_id": 6, "producto": "Omalina 100", "uso": "Paseo, trabajo liviano, reproductores en descanso", "racion": "2.45 a 6.35 kg por día según peso y trabajo"},
+      {"producto_id": 7, "producto": "Omalina 200", "uso": "Deporte y trabajo intenso", "racion": "3.62 a 6.79 kg por día según peso y trabajo"},
+      {"producto_id": 8, "producto": "Omalina 300", "uso": "Yeguas desde el mes 9 de gestación hasta el destete; potros de 2 a 18 meses", "racion": "7 a 9 kg por día más heno"},
+      {"producto_id": 23, "producto": "Forrajina", "uso": "Aporte de fibra: única fuente cuando falta pasto o heno, o complemento", "racion": "0.5 a 1.5 kg por cada 100 kg de peso vivo"},
+      {"producto_id": 5, "producto": "Cavalleria Forte", "uso": "Suplemento con 30 % de proteína", "racion": "200 g a 1 kg por día según etapa"}
+    ],
+    "manejo": "Repartir la ración en 3 o más comidas al día. Agua limpia y fresca a libre acceso."
+  },
+  "otras_especies": {
+    "pollo_criollo": {"producto_id": 10, "producto": "Pollo Criollo", "uso": "Crecimiento y engorde de pollos criollos"},
+    "gallo": {"producto_id": 3, "producto": "Nova Gallos Plus", "uso": "Gallos en crecimiento y adultos con actividad; libre acceso"},
+    "conejo": {"producto_id": 9, "producto": "Granja Familiar Conejos", "uso": "Todas las razas y edades; libre acceso"},
+    "perro": {"cachorro": [13, 16, 17, 35, 40], "adulto": [12, 14, 15, 33, 34], "nota": "Ración diaria según la tabla del empaque por peso"},
+    "gato": {"adulto": [18, 19, 20, 21], "nota": "Si es gatito, pedir la edad para orientar"},
+    "ganado_ovejas_cabras": {"nota": "No hay línea de alimento balanceado para bovinos, ovinos ni caprinos; sí hay productos veterinarios. Pasar la consulta de alimento a un asesor."}
+  },
+  "manejo_alimento": {
+    "transicion": "Cambio gradual de 3 a 5 días mezclando el alimento nuevo con el anterior en proporciones crecientes. Si coincide con vacunación, traslado o destete, separar unos días.",
+    "almacenamiento": "Sacos cerrados, bajo techo, lejos de humedad, filtraciones y sol directo; separados de químicos, medicamentos y combustibles; lote y fecha visibles; usar primero lo que entró primero; revisar los sacos y el área con regularidad.",
+    "rechazo": "Separar el alimento con humedad, moho, olor rancio, grumos húmedos, insectos, daño de roedores o contaminación química. No mezclarlo con el bueno; guardar el número de lote y consultar antes de usarlo.",
+    "mezclas": "Un alimento completo ya cubre la nutrición de la etapa; agregarle maíz u otros ingredientes cambia la concentración. Un suplemento o concentrado se mezcla solo según su tabla de uso."
+  }
+}

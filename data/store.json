@@ -1,0 +1,14 @@
+{
+  "nombre": "AgroCentro Nica",
+  "sitio": "https://www.agrocentronica.com",
+  "telefono_humano": "8240 3490",
+  "telefono_humano_wa": "50582403490",
+  "moneda": "C$",
+  "sucursales": [
+    {"nombre": "Diriomo", "departamento": "Granada"},
+    {"nombre": "Masatepe", "departamento": "Masaya"}
+  ],
+  "horario": "Lunes a viernes de 8:00 a.m. a 5:00 p.m. y sábados de 8:00 a.m. a 2:00 p.m. Domingos cerrado.",
+  "entrega": "Retiro en sucursal (Diriomo o Masatepe). Si el cliente pide envío, se pasa la consulta a un asesor.",
+  "pago": "Se coordina al confirmar el pedido; el agente no cobra ni recibe datos de tarjetas."
+}
