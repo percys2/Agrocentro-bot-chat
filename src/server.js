@@ -83,7 +83,7 @@ if (process.argv[1] && process.argv[1] === fileURLToPath(import.meta.url)) {
   assertRuntimeConfig();
   const app = buildApp();
   const server = createServer(app);
-  server.listen(config.port, () => {
+  server.listen(config.port, "0.0.0.0", () => {
     log.info("agente escuchando", { port: config.port, productos: app.catalog.products.length, modelo: config.anthropic.model, fuente: config.dataSource });
   });
 }
