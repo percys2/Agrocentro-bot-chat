@@ -1,5 +1,6 @@
 // Servidor HTTP (sin dependencias): webhook de WhatsApp + salud.
 import http from "node:http";
+import { readFileSync } from "node:fs";
 import { URL, fileURLToPath } from "node:url";
 import { config, assertRuntimeConfig } from "./config.js";
 import { Catalog } from "./catalog.js";
@@ -41,6 +42,11 @@ export function createServer(app) {
     };
 
     try {
+      if ((req.method === "GET" || req.method === "HEAD") && url.pathname === "/privacidad") {
+        const page = readFileSync(new URL("../public/privacidad.html", import.meta.url), "utf8");
+        return send(200, req.method === "HEAD" ? "" : page, "text/html; charset=utf-8");
+      }
+
       if (req.method === "GET" && (url.pathname === "/" || url.pathname === "/health")) {
         return send(200, JSON.stringify({ ok: true, productos: app.catalog.products.length, modelo: config.anthropic.model }), "application/json");
       }
