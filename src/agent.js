@@ -4,7 +4,7 @@ import { buildContextNote } from "./prompt.js";
 import { log } from "./logger.js";
 
 const MAX_TOOL_ROUNDS = 6;
-const FALLBACK = "Disculpe, no pude resolver la consulta en este momento. Un asesor le escribirá en breve.";
+const FALLBACK = "No logré completar la consulta. Podés intentar de nuevo o pedir que te atienda un asesor.";
 
 export class Agent {
   constructor({ client, catalog, orders, systemPrompt }) {
@@ -27,7 +27,7 @@ export class Agent {
     const execute = createToolExecutor({ catalog: this.catalog, orders: this.orders, customer, events, zona });
     const messages = [...history, { role: "user", content: text }];
     const usage = { input_tokens: 0, output_tokens: 0, cache_read_input_tokens: 0, cache_creation_input_tokens: 0 };
-    const systemExtra = buildContextNote({ catalog: this.catalog, customer });
+    const systemExtra = buildContextNote({ catalog: this.catalog, customer, zona });
     let reply = "";
 
     for (let round = 0; round <= MAX_TOOL_ROUNDS; round += 1) {

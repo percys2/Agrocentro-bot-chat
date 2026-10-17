@@ -9,9 +9,9 @@ import { Catalog } from "../src/catalog.js";
 import { Orders } from "../src/orders.js";
 import { createStores } from "../src/store.js";
 import { Agent, trimHistory } from "../src/agent.js";
-import { buildSystemPrompt } from "../src/prompt.js";
+import { buildSystemPrompt, buildContextNote } from "../src/prompt.js";
 import { createHandler } from "../src/handler.js";
-import { TOOL_DEFINITIONS } from "../src/tools.js";
+import { TOOL_DEFINITIONS, createToolExecutor } from "../src/tools.js";
 
 const dataDir = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "data");
 
@@ -171,4 +171,70 @@ test("trimHistory nunca devuelve vacío con historial lleno de herramientas", ()
   assert.ok(t.length > 0);
   assert.equal(t[0].role, "user");
   assert.equal(typeof t[0].content, "string");
+});
+
+test("responde quién es sin exigir zona ni repetir un menú", async () => {
+  const { handler, sent, client } = setup([text("Soy el asistente virtual de AgroCentro Nica. ¿En qué te ayudo?")]);
+  await handler.handleIncoming({ id: "intro", from: "50511110001", text: "¿Quién eres?" });
+  assert.equal(client.calls.length, 1);
+  assert.match(sent[0].body, /asistente virtual de AgroCentro/);
+  assert.doesNotMatch(sent[0].body, /1\. Masaya/);
+});
+
+test("reconoce Masatep y conserva la zona cuando el cliente dice 50 pollos", async () => {
+  const { handler, stores, client } = setup([text("¿Qué andás buscando?"), text("¿Te los entregan recién nacidos?")]);
+  const from = "50511110002";
+  await handler.handleIncoming({ id: "zona", from, text: "Masatep" });
+  assert.equal(stores.sessions.get(from).zona, "Masatepe");
+  await handler.handleIncoming({ id: "pollos", from, text: "Voy a recibir 50 pollos" });
+  assert.equal(stores.sessions.get(from).zona, "Masatepe");
+  assert.match(client.calls[1].systemExtra, /Zona: Masatepe/);
+});
+
+test("una cantidad de animales no se interpreta como opción de zona", async () => {
+  const { handler, stores } = setup([text("¿Qué edad tienen?")]);
+  await handler.handleIncoming({ id: "cantidad", from: "50511110003", text: "5 pollos" });
+  assert.equal(stores.sessions.get("50511110003").zona, null);
+});
+
+test("consultar una ficha sin zona no deriva a un asesor ni revela el precio", async () => {
+  const { catalog, orders } = setup([]);
+  catalog.prices.precios = [{ id: 1, presentacion: "Saco 100 lb (45.4 kg)", precio: 1850 }];
+  const events = [];
+  const execute = createToolExecutor({ catalog, orders, customer: { phone: "50511110004" }, events });
+  const result = await execute("ficha_producto", { id: 1 });
+  assert.equal(result.nombre, "Engordina");
+  assert.equal(result.precio, "por confirmar");
+  assert.ok(!JSON.stringify(result).includes("1850"));
+  assert.ok(!events.some((event) => event.type === "handoff"));
+});
+
+test("los datos recién guardados se usan al recomendar dentro del mismo turno", async () => {
+  const { agent } = setup([
+    toolUse("save", "guardar_datos_cliente", { animal_tipo: "pollo_engorde", animal_cantidad: 50, animal_edad_dias: 10 }),
+    toolUse("feed", "recomendar_alimento", { especie: "pollo_engorde" }),
+    text("Con 10 días les toca Iniciarina."),
+  ]);
+  const result = await agent.respond({ customer: { phone: "50511110005", clientData: {} }, text: "Tengo 50 pollos de 10 días" });
+  const recommendation = result.events.find((event) => event.name === "recomendar_alimento").result;
+  assert.match(recommendation.alimento_actual, /Iniciarina/);
+  assert.equal(recommendation.calculo.total_lb, 500);
+  assert.ok(!result.events.some((event) => event.type === "handoff"));
+});
+
+test("la memoria del cliente y la zona acompañan la siguiente consulta", () => {
+  const { catalog } = setup([]);
+  const note = buildContextNote({ catalog, customer: { clientData: { animal_tipo: "pollo_engorde", animal_cantidad: 50 } }, zona: "Masatepe" });
+  assert.match(note, /Masatepe/);
+  assert.match(note, /"animal_cantidad":50/);
+});
+
+test("guardar edades cero y semanas mantiene los campos compartidos", async () => {
+  const { catalog, orders } = setup([]);
+  const events = [];
+  const execute = createToolExecutor({ catalog, orders, customer: { phone: "50511110006" }, events });
+  assert.equal((await execute("guardar_datos_cliente", { animal_edad_dias: 0 })).ok, true);
+  assert.equal(events[0].animal_edad_dias, 0);
+  assert.equal((await execute("guardar_datos_cliente", { animal_edad_semanas: 20 })).ok, true);
+  assert.equal(events[1].animal_edad_semanas, 20);
 });

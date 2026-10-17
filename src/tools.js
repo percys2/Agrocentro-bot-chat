@@ -110,6 +110,7 @@ export const TOOL_DEFINITIONS = [
         animal_tipo: { type: "string", enum: ["pollo_engorde", "gallina_ponedora", "pollo_criollo", "cerdo", "cerda_reproductora", "caballo", "perro", "gato", "conejo", "ganado"], description: "Tipo de animal que el cliente tiene (si lo mencionó)" },
         animal_cantidad: { type: "integer", description: "Cantidad de ese animal (si lo dió)" },
         animal_edad_dias: { type: "integer", description: "Edad en días del animal (si es pollo o lechon)" },
+        animal_edad_semanas: { type: "integer", description: "Edad en semanas, si el cliente la conoce" },
         animal_edad_meses: { type: "integer", description: "Edad en meses (perros, gatos)" },
         animal_fecha_nacimiento: { type: "string", description: "Fecha de nacimiento AAAA-MM-DD (si el cliente la sabe)" },
         sucursal_preferida: { type: "string", enum: ["Masaya", "Granada", "Veracruz", "Diriomo", "Masatepe", "Las Flores"], description: "Sucursal donde prefiere retirar" },
@@ -145,12 +146,13 @@ function mergeWithClientData(input, clientData) {
   // Para recomendar_alimento: llenar especie, cantidad, edad si no están en el input
   if (!merged.especie && clientData.animal_tipo) merged.especie = clientData.animal_tipo;
   if (!merged.cantidad && clientData.animal_cantidad) merged.cantidad = clientData.animal_cantidad;
-  if (!merged.edad_dias && clientData.animal_edad_dias) merged.edad_dias = clientData.animal_edad_dias;
-  if (!merged.edad_semanas && clientData.animal_edad_dias) {
+  if (merged.edad_dias == null && clientData.animal_edad_dias != null) merged.edad_dias = clientData.animal_edad_dias;
+  if (merged.edad_semanas == null && clientData.animal_edad_semanas != null) merged.edad_semanas = clientData.animal_edad_semanas;
+  if (merged.edad_semanas == null && clientData.animal_edad_dias != null) {
     // Convertir días a semanas para gallinas
     merged.edad_semanas = Math.floor(clientData.animal_edad_dias / 7);
   }
-  if (!merged.edad_meses && clientData.animal_edad_meses) merged.edad_meses = clientData.animal_edad_meses;
+  if (merged.edad_meses == null && clientData.animal_edad_meses != null) merged.edad_meses = clientData.animal_edad_meses;
   if (!merged.fecha_nacimiento && clientData.animal_fecha_nacimiento) merged.fecha_nacimiento = clientData.animal_fecha_nacimiento;
   if (!merged.dias && clientData.dias_alimento) merged.dias = clientData.dias_alimento;
 
@@ -163,7 +165,7 @@ function mergeWithClientData(input, clientData) {
 // Crea el ejecutor de herramientas para una conversación concreta.
 export function createToolExecutor({ catalog, orders, customer, events, zona }) {
   const emit = (type, payload) => events?.push({ type, ...payload });
-  const clientData = customer?.clientData || {};
+  const clientData = { ...customer?.clientData };
 
   // Zonas con cobertura de precios
   const ZONAS_COBERTURA = ["Masaya", "Granada", "Veracruz", "Diriomo", "Masatepe", "Las Flores"];
@@ -178,7 +180,7 @@ export function createToolExecutor({ catalog, orders, customer, events, zona }) 
       if (!puedeVerPrecios) {
         return {
           resultados: results.map(r => ({ ...r, precio: "por confirmar" })),
-          nota: "Para precios específicos, un asesor te contactará."
+          nota: "Precio por confirmar. Si necesita un precio, preguntá su zona sin bloquear la consulta."
         };
       }
       return { resultados: results };
@@ -188,16 +190,12 @@ export function createToolExecutor({ catalog, orders, customer, events, zona }) 
       const d = catalog.details(id);
       if (!d) return { error: `No existe el producto id ${id}` };
 
-      // Si no está en zona, ocultar precio y pasar a humano automáticamente
+      // Sin zona se puede explicar la ficha; preguntar la zona no requiere derivación.
       if (!puedeVerPrecios) {
-        emit("handoff", {
-          motivo: "consulta de precio fuera de zona",
-          resumen: `Cliente fuera de zona (${zona || "sin zona"}) preguntó por: ${d.nombre}`
-        });
         return {
           ...d,
           precio: "por confirmar",
-          nota_precio: "Para precios específicos, un asesor te contactará."
+          nota_precio: "Preguntá de qué zona escribe si necesita un precio; por ahora, precio por confirmar."
         };
       }
       return d;
@@ -309,9 +307,9 @@ export function createToolExecutor({ catalog, orders, customer, events, zona }) 
       if (nombre) datos.nombre = nombre;
       if (animal_tipo) datos.animal_tipo = animal_tipo;
       if (animal_cantidad) datos.animal_cantidad = animal_cantidad;
-      if (animal_edad_dias) datos.animal_edad_dias = animal_edad_dias;
-      if (animal_edad_semanas) datos.animal_edad_semanas = animal_edad_semanas;
-      if (animal_edad_meses) datos.animal_edad_meses = animal_edad_meses;
+      if (animal_edad_dias != null) datos.animal_edad_dias = animal_edad_dias;
+      if (animal_edad_semanas != null) datos.animal_edad_semanas = animal_edad_semanas;
+      if (animal_edad_meses != null) datos.animal_edad_meses = animal_edad_meses;
       if (animal_fecha_nacimiento) datos.animal_fecha_nacimiento = animal_fecha_nacimiento;
       if (sucursal_preferida) datos.sucursal_preferida = sucursal_preferida;
       if (dias_alimento) datos.dias_alimento = dias_alimento;
@@ -320,6 +318,7 @@ export function createToolExecutor({ catalog, orders, customer, events, zona }) 
         return { ok: false, error: "No hay datos para guardar" };
       }
 
+      Object.assign(clientData, datos);
       emit("client_data_saved", datos);
       return {
         ok: true,

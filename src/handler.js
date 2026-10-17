@@ -9,6 +9,14 @@ const HANDOFF_WINDOW_MS = 2 * 3600 * 1000;
 const ACK_EVERY_MS = 15 * 60 * 1000;
 const ZONAS = ["Masaya", "Granada", "Veracruz", "Diriomo", "Masatepe", "Las Flores"];
 
+function zonaEnMensaje(text) {
+  const normalized = text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+  // Solo una opción aislada es un número de zona; "50 pollos" no lo es.
+  if (/^[1-6][.)]?$/.test(normalized)) return ZONAS[Number(normalized[0]) - 1];
+  return ZONAS.find((zona) => new RegExp(`\\b${zona.toLowerCase()}\\b`).test(normalized))
+    || (/\bmasatep\b/.test(normalized) ? "Masatepe" : null);
+}
+
 export function createHandler({ config, catalog, orders, stores, agent, transport }) {
   const queues = new Map();
 
@@ -97,31 +105,9 @@ export function createHandler({ config, catalog, orders, stores, agent, transpor
       return;
     }
 
-    // Si no tiene zona, preguntar primero
-    if (!session.zona) {
-      // Verificar si el mensaje es una zona válida (por nombre o número)
-      let zonaDelMensaje;
-
-      // Intentar por número (1-6)
-      const num = parseInt(msg.text.trim());
-      if (num >= 1 && num <= ZONAS.length) {
-        zonaDelMensaje = ZONAS[num - 1];
-      } else {
-        // Intentar por nombre
-        zonaDelMensaje = ZONAS.find(z => msg.text.toLowerCase().includes(z.toLowerCase()));
-      }
-
-      if (zonaDelMensaje) {
-        session.zona = zonaDelMensaje;
-        saveSession(session);
-        // Proceder con el resto del mensaje
-      } else {
-        // Preguntar por zona con botones numerados
-        const opcionesFormato = ZONAS.map((z, i) => `${i + 1}. ${z}`).join("\n");
-        await transport.sendText(msg.from, `Hola 👋 ¿De dónde escribís?\n\n${opcionesFormato}\n\nEscribe el número o el nombre de tu zona.`);
-        return;
-      }
-    }
+    // La zona aporta contexto, pero nunca bloquea un saludo o una consulta.
+    const zona = zonaEnMensaje(msg.text);
+    if (zona) session.zona = zona;
 
     const started = Date.now();
     // Enriquecer customer con los datos guardados en la sesión
@@ -167,7 +153,7 @@ export function createHandler({ config, catalog, orders, stores, agent, transpor
     } catch (err) {
       log.error("error atendiendo mensaje", { from: msg.from, err: err.stack || err.message });
       try {
-        await transport.sendText(msg.from, `Disculpe, tuve un problema para responder. Puede escribir al ${catalog.store.telefono_humano} y un asesor le atiende.`);
+        await transport.sendText(msg.from, `Tuve un problema para responderte. Podés intentar de nuevo o escribir al ${catalog.store.telefono_humano} para hablar con un asesor.`);
       } catch {}
       await notifyOwner(`Error atendiendo a wa.me/${msg.from}: ${err.message}`);
     }
